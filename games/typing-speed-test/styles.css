@@ -1,0 +1,123 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 600px;
+}
+
+.scoreboard {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: left;
+    font-size: 1em;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.scoreboard p {
+    margin: 5px 0;
+}
+
+#paragraph-display {
+    font-size: 1.2em;
+    margin: 20px 0;
+    color: #fff;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 1.5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    outline: none;
+    cursor: text;
+}
+
+#paragraph-display span.correct {
+    color: #2ecc71; /* Green for correct letters */
+}
+
+#paragraph-display span.incorrect {
+    color: #e74c3c; /* Red for incorrect letters */
+}
+
+#paragraph-display span.space {
+    display: inline-block;
+    width: 0.5em; /* Add spacing for spaces */
+}
+#keyboard {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    background-color: #3498db;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.key.active {
+    background-color: #2ecc71;
+    transform: scale(1.1);
+}
+
+/* Add this to your styles.css */
+#user-input {
+    width: 95%; /* Adjust as needed */
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent */
+    color: #fff; /* White text color */
+    outline: none; /* Remove default focus outline */
+}
+
+#user-input::placeholder { /* Style placeholder text */
+    color: #ddd;
+}
+
+#user-input:focus { /* Style when focused */
+     border-color: #3498db; /* Highlight border on focus */
+     background-color: rgba(255, 255, 255, 0.3);
+}

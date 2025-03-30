@@ -1,50 +1,119 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Gradient background */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: #fff;
 }
 
 .game-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1); /* Transparent card */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 #scrambled-word {
-    font-size: 2em;
+    font-size: 2.5em;
     margin: 20px 0;
-    color: #333;
+    color: #f1c40f;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #user-input {
     padding: 10px;
-    font-size: 1em;
-    width: 200px;
-    margin-bottom: 10px;
+    font-size: 1.2em;
+    width: 250px;
+    margin-bottom: 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#user-input:focus {
+    border-color: #45a049;
 }
 
 #submit-btn {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #28a745;
+    padding: 10px 25px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #submit-btn:hover {
-    background-color: #218838;
+    background-color: #45a049;
+    transform: scale(1.05);
 }
 
 #result {
     margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2ecc71;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#result.incorrect {
+    color: #e74c3c;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#give-up-btn {
+    padding: 10px 25px;
     font-size: 1.2em;
-    color: #333;
+    background-color: #e74c3c; /* Red color for "Give Up" */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#give-up-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.scoreboard {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: left;
+    font-size: 1em;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.scoreboard p {
+    margin: 5px 0;
 }

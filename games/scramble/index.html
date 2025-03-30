@@ -8,11 +8,20 @@
 </head>
 <body>
     <div class="game-container">
-        <h1>Word Scramble Game</h1>
+        <h1>Word Scramble</h1>
         <div id="scrambled-word"></div>
-        <input type="text" id="user-input" placeholder="Enter your guess">
-        <button id="submit-btn">Submit</button>
+        <input type="text" id="user-input" placeholder="Type your guess here..." />
+        <div class="buttons">
+            <button id="submit-btn">Submit</button>
+            <button id="give-up-btn">Give Up</button>
+        </div>
         <div id="result"></div>
+        <div class="scoreboard">
+            <p>Correct Answers: <span id="correct-answers">0</span></p>
+            <p>Total Questions: <span id="total-questions">0</span></p>
+            <p>Total Time: <span id="total-time">0</span> seconds</p>
+            <p>Time per Answer: <span id="time-per-answer">0</span> seconds</p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

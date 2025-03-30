@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Typing Speed Test</h1>
+    </header>
+    <main>
+        <div class="game-container">
+            <div class="scoreboard">
+                <p>Time Left: <span id="time-left">120</span> seconds</p>
+                <p>Words Typed: <span id="words-typed">0</span></p>
+                <p>Current WPM: <span id="wpm">0</span></p>
+            </div>
+            <!-- Inside the .game-container div -->
+<div id="paragraph-display"></div>
+<!-- Add this input field -->
+<input type="text" id="user-input" placeholder="Click Start Test..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" disabled>
+<button id="start-game">Start Test</button>
+
+<div id="keyboard">
+    <!-- ... keyboard keys ... -->
+</div>
+            <button id="start-game">Start Test</button>
+            <div id="keyboard">
+                <!-- Keyboard layout -->
+                <div class="row">
+                    <span class="key" data-key="q">Q</span>
+                    <span class="key" data-key="w">W</span>
+                    <span class="key" data-key="e">E</span>
+                    <span class="key" data-key="r">R</span>
+                    <span class="key" data-key="t">T</span>
+                    <span class="key" data-key="y">Y</span>
+                    <span class="key" data-key="u">U</span>
+                    <span class="key" data-key="i">I</span>
+                    <span class="key" data-key="o">O</span>
+                    <span class="key" data-key="p">P</span>
+                </div>
+                <div class="row">
+                    <span class="key" data-key="a">A</span>
+                    <span class="key" data-key="s">S</span>
+                    <span class="key" data-key="d">D</span>
+                    <span class="key" data-key="f">F</span>
+                    <span class="key" data-key="g">G</span>
+                    <span class="key" data-key="h">H</span>
+                    <span class="key" data-key="j">J</span>
+                    <span class="key" data-key="k">K</span>
+                    <span class="key" data-key="l">L</span>
+                </div>
+                <div class="row">
+                    <span class="key" data-key="z">Z</span>
+                    <span class="key" data-key="x">X</span>
+                    <span class="key" data-key="c">C</span>
+                    <span class="key" data-key="v">V</span>
+                    <span class="key" data-key="b">B</span>
+                    <span class="key" data-key="n">N</span>
+                    <span class="key" data-key="m">M</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
