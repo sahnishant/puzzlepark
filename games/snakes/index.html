@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snakes Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Snakes Game</h1>
+    </header>
+    <main>
+        <div id="start-screen">
+            <h2>Welcome to Snakes Game!</h2>
+            <p>Instructions:</p>
+            <ul>
+                <li>Use arrow keys to control the snake.</li>
+                <li>Eat the food to grow and increase your score.</li>
+                <li>Avoid colliding with walls or yourself.</li>
+            </ul>
+            <button id="start-game-button">Start Game</button>
+        </div>
+        <div id="game-container" style="display: none;">
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <div id="score-board">
+                <p>Score: <span id="score">0</span></p>
+                <p>Level: <span id="level">1</span></p>
+                <p>High Score: <span id="high-score">0</span></p>
+                <p id="end-message" style="display: none;"></p>
+            </div>
+            <div id="controls">
+                <label for="difficulty">Select Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <button id="play-game-button">Play Game</button> <!-- New button -->
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

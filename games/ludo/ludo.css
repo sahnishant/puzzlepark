@@ -1,0 +1,101 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  
+  .board {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    border: 5px solid #000;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    gap: 2px;
+  }
+  
+  /* Bases for players */
+  .base {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .base-1 { grid-area: 1 / 1 / 6 / 6; background-color: #ffcccc; } /* Red base */
+  .base-2 { grid-area: 1 / 10 / 6 / 15; background-color: #ccccff; } /* Blue base */
+  .base-3 { grid-area: 10 / 1 / 15 / 6; background-color: #ccffcc; } /* Green base */
+  .base-4 { grid-area: 10 / 10 / 15 / 15; background-color: #ffffcc; } /* Yellow base */
+  
+  /* Narrow channels */
+  .channel {
+    background-color: #ddd;
+    border: 1px solid #000;
+  }
+  
+  .channel-1 { grid-area: 6 / 6 / 7 / 10; } /* Top channel */
+  .channel-2 { grid-area: 6 / 6 / 10 / 7; } /* Left channel */
+  .channel-3 { grid-area: 9 / 6 / 10 / 10; } /* Bottom channel */
+  .channel-4 { grid-area: 6 / 9 / 10 / 10; } /* Right channel */
+  
+  /* Center grid */
+  .center-grid {
+    grid-area: 7 / 7 / 9 / 9;
+    background-color: #ffcc00;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Player pieces */
+  .piece {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .player-1 { background-color: red; }
+  .player-2 { background-color: blue; }
+  .player-3 { background-color: green; }
+  .player-4 { background-color: yellow; }
+  
+  /* Controls */
+  .controls {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #roll-dice {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  #roll-dice:hover {
+    background-color: #45a049;
+  }
+  
+  #dice-result {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }

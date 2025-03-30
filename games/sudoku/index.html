@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudoku Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Sudoku Game</h1>
+  <div class="controls">
+    <label for="seed">Seed (1-1000):</label>
+    <input type="number" id="seed" min="1" max="1000" value="1">
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+    <button id="generate">Generate Sudoku</button>
+  </div>
+  <div id="sudoku-board"></div>
+  <script src="script.js"></script>
+</body>
+</html>

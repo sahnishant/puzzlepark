@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mysterious Island Puzzle</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>The Mysterious Island Puzzle</h1>
+    <p>You encounter three islanders: Alice, Bob, and Carol. Determine their tribes based on their statements.</p>
+    
+    <div class="statements">
+      <p><strong>Alice says:</strong> "Bob is a Liar."</p>
+      <p><strong>Bob says:</strong> "Carol is an Alternator."</p>
+      <p><strong>Carol says:</strong> "Alice is a Truth-teller."</p>
+    </div>
+
+    <button id="solveButton">Solve the Puzzle</button>
+
+    <div id="solution" class="hidden">
+      <h2>Solution:</h2>
+      <p><strong>Alice:</strong> <span id="aliceTribe"></span></p>
+      <p><strong>Bob:</strong> <span id="bobTribe"></span></p>
+      <p><strong>Carol:</strong> <span id="carolTribe"></span></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.game-container {
+    text-align: center;
+}
+
+.seed-input {
+    margin-bottom: 20px;
+}
+
+.seed-input input {
+    padding: 5px;
+    font-size: 16px;
+    width: 60px;
+}
+
+.seed-input button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tubes-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.tube {
+    width: 60px;
+    height: 200px;
+    border: 3px solid #333;
+    border-bottom: 10px solid #333;
+    border-radius: 10px 10px 20px 20px; /* Rounded bottom */
+    display: flex;
+    flex-direction: column-reverse; /* Liquids stack from the bottom */
+    justify-content: flex-start; /* Align liquids to the bottom */
+    cursor: pointer;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden; /* Ensure liquids don't overflow */
+}
+
+.liquid {
+    height: 40px;
+    border-radius: 5px 5px 0 0; /* Round the top of the liquid */
+    transition: transform 0.3s ease; /* Smooth transition for pouring effect */
+}
+
+
+/* Example liquid colors */
+.liquid.red { background: linear-gradient(to bottom, #ff4d4d, #cc0000); }
+.liquid.blue { background: linear-gradient(to bottom, #4da6ff, #0066cc); }
+.liquid.green { background: linear-gradient(to bottom, #66ff66, #009900); }
+.liquid.yellow { background: linear-gradient(to bottom, #ffff66, #cccc00); }
+.liquid.purple { background: linear-gradient(to bottom, #cc66ff, #6600cc); }
+.liquid.orange { background: linear-gradient(to bottom, #ff9966, #cc6600); }
+
+#resetBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+#resetBtn:hover {
+    background-color: #555;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 20px;.liquid {
+        height: 40px;
+        border-radius: 5px;
+        transition: transform 0.3s ease; /* Add smooth transition */
+    }
+    
+    .tube.selected .liquid:last-child {
+        transform: translateY(-10px); /* Lift the top liquid slightly */
+    }
+    font-weight: bold;
+    color: green;
+}
+
+.hidden {
+    display: none;
+}
+
+.tube.selected .liquid:last-child {
+    transform: translateY(-10px); /* Lift the top liquid slightly */
+}

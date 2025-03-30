@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .controls {
+    margin-bottom: 20px;
+  }
+  
+  #sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, 50px);
+    grid-template-rows: repeat(9, 50px);
+    gap: 2px;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .cell {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid #000;
+    background-color: #fff;
+  }
+  
+  .cell:focus {
+    outline: none;
+    background-color: #e0f7fa;
+  }
+  
+  .cell.correct {
+    background-color: #c8e6c9;
+  }
+  
+  .cell.incorrect {
+    background-color: #ffcdd2;
+  }
