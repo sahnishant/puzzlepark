@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+    gap: 2px;
+    margin: 20px auto;
+    position: relative; /* Add this line */
+}
+
+.ladder {
+    position: absolute;
+    height: 4px;
+    background-color: green;
+    transform-origin: 0 0;
+    z-index: 4;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative; /* Ensure ladders are positioned relative to cells */
+    z-index: 2; /* Ensure cells are above ladders */
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.status {
+    margin-top: 10px;
+    font-size: 18px;
+}/* Add this to your existing CSS */
+

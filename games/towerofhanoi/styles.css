@@ -1,0 +1,100 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  #game-container {
+    margin: 20px auto;
+    width: 600px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  #controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  #move-counter, #min-moves {
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  
+  /* Draggable disk styling */
+  .disk {
+    cursor: grab;
+    rx: 10; /* Rounded corners */
+    ry: 10; /* Rounded corners */
+    transition: transform 0.2s;
+  }
+  
+  .disk:active {
+    cursor: grabbing;
+    transform: scale(1.05);
+  }
+  
+  /* Rod styling */
+  .rod {
+    fill: #555;
+    stroke: #333;
+    stroke-width: 2;
+  }
+  
+  /* Base styling */
+  .base {
+    fill: #888;
+    stroke: #555;
+    stroke-width: 2;
+  }

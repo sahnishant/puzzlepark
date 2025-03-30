@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tetris</h1>
+    </header>
+    <main>
+        <div id="instructions">
+            <p>Use the arrow keys to move and rotate the blocks. Clear lines to score points!</p>
+        </div>
+        <div id="game-container">
+            <canvas id="tetrisCanvas" width="300" height="400"></canvas> <!-- Increased width -->
+            <div id="score-board">
+                <p>Score: <span id="score">0</span></p>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
