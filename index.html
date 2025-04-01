@@ -1,44 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Hub</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whimsy Game Galaxy</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Game Hub!</h1>
-    </header>
-    <main>
-        <section id="game-menu">
-            <h2>Choose a Game</h2>
-            <div id="game-list">
-                <button data-game="1024">1024</button>
-                <button data-game="IslandPuzzle">Island Puzzle</button>
-                <button data-game="mastermind">Master Mind</button>
-                <button data-game="memory">Memory</button>
-                <button data-game="minesweeper">Minesweeper</button>
-                <button data-game="number-guess">Number Guessing</button>
-                <button data-game="riddles">Riddles</button>
-                <button data-game="scramble">Scramble</button>
-                <button data-game="sliding-puzzle">Sliding Puzzle</button>
-                <button data-game="snakeandladder">Snake And Ladder</button>
-                <button data-game="snakes">Snakes</button>
-                <button data-game="space-invaders">Space Invaders</button>
-                <button data-game="sudoku">Sudoku</button>
-                <button data-game="tetris">Tetris</button>
-                <button data-game="tic-tac-toe">Tic-Tac-Toe</button>
-                <button data-game="towerofhanoi">Tower Of Hanoi</button>
-                <button data-game="typing-speed-test">Typing Speed Test</button>
-                <button data-game="typing-tutor">Typing Tutor</button>
-                <button data-game="watersort">Water Sort</button>
-            </div>
-        </section>
-    </main>
+  <nav class="navigation">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span class="icon gamepad-icon"></span>
+        <span class="logo-text">Whimsy Game Galaxy</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Games</a>
+        <a href="https://github.com/yourusername/whimsy-game-galaxy" class="nav-link">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container main">
+    <div class="header">
+      <h1 class="title">Whimsy Game Galaxy</h1>
+      <p class="subtitle">
+        Your fun-filled arcade of games! Click on any game to start playing.
+      </p>
+    </div>
+
+    <div class="controls">
+      <div class="search-container">
+        <input type="search" id="searchInput" placeholder="Search games...">
+      </div>
+      
+      <div class="category-filters">
+        <button class="filter-btn active" data-category="all">All Games</button>
+        <button class="filter-btn" data-category="puzzle">Puzzle Games</button>
+        <button class="filter-btn" data-category="arcade">Arcade Games</button>
+        <button class="filter-btn" data-category="board">Board Games</button>
+        <button class="filter-btn" data-category="word">Word Games</button>
+        <button class="filter-btn" data-category="strategy">Strategy Games</button>
+      </div>
+    </div>
+
+    <div class="games-container">
+      <div id="gamesGrid" class="games-grid">
+        <!-- Games will be inserted here by JavaScript -->
+      </div>
+      <div id="noGamesMessage" class="no-games-message hidden">
+        <p>No games found matching your search.</p>
+      </div>
+    </div>
+
     <footer>
-        <p>© 2024 Game Hub</p>
+      <p>© <span id="currentYear"></span> Whimsy Game Galaxy. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

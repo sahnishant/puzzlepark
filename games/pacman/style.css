@@ -1,0 +1,68 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #111; /* Dark background */
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #FFD700; /* Gold color */
+    margin-bottom: 15px;
+}
+
+.game-info {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.game-info span {
+    margin: 0 15px;
+}
+
+#gameCanvas {
+    background-color: #000; /* Black canvas background */
+    border: 3px solid #0000FF; /* Blue border like original */
+    display: block; /* Removes extra space below */
+    margin: 0 auto; /* Center canvas if container is wider */
+}
+
+.message-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #FFD700;
+    padding: 30px 40px;
+    border-radius: 10px;
+    font-size: 2em;
+    font-weight: bold;
+    z-index: 10;
+    border: 2px solid #FFD700;
+}
+
+.start-button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+    background-color: #e6c300;
+}

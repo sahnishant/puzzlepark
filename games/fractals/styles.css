@@ -1,0 +1,130 @@
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align top for potentially long content */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    color: #1a73e8;
+    margin-bottom: 20px;
+}
+
+.controls {
+    margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* Label, Input, Value */
+    gap: 10px 15px;
+    align-items: center;
+    text-align: left;
+}
+
+.controls label {
+    grid-column: 1 / 2;
+    font-weight: bold;
+    justify-self: end;
+}
+
+.controls select,
+.controls input[type="range"],
+.controls input[type="checkbox"] {
+    grid-column: 2 / 3;
+    width: 100%;
+    cursor: pointer;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.controls input[type="checkbox"] {
+   justify-self: start;
+   width: auto;
+}
+
+.controls span {
+    grid-column: 3 / 4;
+    min-width: 35px; /* Ensure space for value */
+    text-align: right;
+    font-family: monospace;
+    font-size: 1.1em;
+}
+
+/* Style control groups within the main grid */
+.control-group {
+    grid-column: 1 / -1; /* Span all columns */
+    display: contents; /* Make children part of the main grid */
+}
+
+.controls button {
+    grid-column: 1 / -1;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.controls button:hover {
+    background-color: #155ab6;
+}
+
+#fractal-display {
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    max-width: 100%;
+    line-height: 0; /* Prevent extra space under containers */
+}
+
+.svg-container, .canvas-container {
+     max-width: 100%;
+     aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
+     /* height: auto; let aspect-ratio handle height */
+}
+
+#fractal-svg {
+    display: block;
+    width: 100%;
+    height: 100%; /* Fill container */
+}
+
+#fractal-canvas {
+    display: block;
+    width: 100%;
+    height: 100%; /* Fill container */
+    background-color: #eee; /* Canvas background */
+}
+
+
+/* Style for the generated SVG elements */
+.fractal-shape {
+    /* Fill and stroke set dynamically */
+    stroke-width: 0.5;
+    vector-effect: non-scaling-stroke; /* Keep stroke thin on zoom */
+    transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.note {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 15px;
+}
