@@ -1,0 +1,178 @@
+:root {
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * 0.8); /* Size of X and O */
+  --board-border: 3px solid #334155; /* slate-700 */
+  --cell-border: 2px solid #cbd5e1; /* slate-300 */
+  --background-color: #f1f5f9; /* slate-100 */
+  --container-bg: #ffffff; /* white */
+  --text-color: #1e293b; /* slate-800 */
+  --x-color: #ef4444; /* red-500 */
+  --o-color: #3b82f6; /* blue-500 */
+  --button-bg: #4f46e5; /* indigo-600 */
+  --button-hover-bg: #4338ca; /* indigo-700 */
+  --status-win-color: #16a34a; /* green-600 */
+  --status-draw-color: #f59e0b; /* amber-500 */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 20px;
+}
+
+.container {
+  background-color: var(--container-bg);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px; /* Adjust as needed */
+  width: 100%;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.status {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  min-height: 1.5em; /* Prevent layout shifts */
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, var(--cell-size));
+  grid-template-rows: repeat(3, var(--cell-size));
+  gap: 0; /* Borders will create the visual gap */
+  width: calc(var(--cell-size) * 3);
+  height: calc(var(--cell-size) * 3);
+  margin: 0 auto 30px auto;
+  border: var(--board-border);
+  border-radius: 5px;
+  overflow: hidden; /* Ensures borders inside look crisp */
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: var(--cell-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--mark-size);
+  font-weight: 600;
+  cursor: pointer;
+  position: relative; /* For potential pseudo-element styling */
+  transition: background-color 0.2s ease;
+  user-select: none; /* Prevent text selection */
+}
+
+/* Remove borders strategically for classic look */
+.cell:nth-child(1), .cell:nth-child(2), .cell:nth-child(3) { border-top: none; }
+.cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) { border-bottom: none; }
+.cell:nth-child(1), .cell:nth-child(4), .cell:nth-child(7) { border-left: none; }
+.cell:nth-child(3), .cell:nth-child(6), .cell:nth-child(9) { border-right: none; }
+
+/* Hover effect only on empty cells */
+.cell:not(.x):not(.o):hover {
+  background-color: #e2e8f0; /* slate-200 */
+}
+
+.cell.x {
+  color: var(--x-color);
+  cursor: not-allowed;
+}
+
+.cell.o {
+  color: var(--o-color);
+  cursor: not-allowed;
+}
+
+/* Add subtle animation */
+.cell.x::before,
+.cell.o::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: inherit; /* Ensure size matches cell font size */
+  animation: appear 0.3s ease-out;
+}
+
+.cell.x::before { content: 'X'; }
+.cell.o::before { content: 'O'; }
+
+
+@keyframes appear {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.restart-btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--button-bg);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.restart-btn:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.restart-btn:active {
+  transform: scale(0.98);
+}
+
+/* Status specific colors */
+.status.win {
+  color: var(--status-win-color);
+  font-weight: 600;
+}
+
+.status.draw {
+  color: var(--status-draw-color);
+  font-weight: 600;
+}
+
+/* Responsive adjustments (optional simple example) */
+@media (max-width: 450px) {
+  :root {
+      --cell-size: 80px; /* Smaller cells on smaller screens */
+  }
+  .container {
+      padding: 20px;
+  }
+  h1 {
+      font-size: 1.8rem;
+  }
+  .status {
+      font-size: 1rem;
+  }
+  .restart-btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+  }
+}

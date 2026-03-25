@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spin Wheel - Whimsy Game Galaxy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs"></div>
+    <div class="container">
+        <header>
+            <a href="../../index.html" class="back-link">← Back to Galaxy</a>
+            <h1>Spin Wheel Questions</h1>
+            <p class="subtitle">Spin the wheel and complete the sentence!</p>
+        </header>
+
+        <main class="game-area">
+            <div class="wheel-container">
+                <div class="pointer"></div>
+                <canvas id="wheel" width="500" height="500"></canvas>
+            </div>
+
+            <div class="controls">
+                <button id="spinBtn" class="btn primary">Start Spinning!</button>
+                <button id="stopBtn" class="btn secondary" disabled>STOP!</button>
+            </div>
+
+            <div id="resultModal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>The wheel says...</h2>
+                    <div id="questionDisplay" class="question-text"></div>
+                    <button id="nextBtn" class="btn primary">Spin Again</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    flex-direction: column; /* Stack title and game vertically */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure body takes full height */
+    margin: 0;
+    background-color: #f0f0f0; /* Light background */
+    font-family: sans-serif;
+}
+
+h1 {
+    margin-bottom: 20px; /* Space between title and game */
+    color: #333;
+}
+
+#game-container {
+    border: 1px solid #ccc; /* Optional border around the game */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    position: relative; /* Needed for absolute positioning of UI text if desired */
+}
+
+/* Ensure the canvas created by Phaser is block level for centering */
+canvas {
+    display: block;
+}
+
+/* Style for the UI text elements */
+.ui-text {
+    font-size: 18px;
+    fill: '#1a1a1a'; /* Darker text */
+    font-family: sans-serif;
+}
+
+.level-complete-text {
+     font-size: 36px;
+     fill: '#00aa00';
+     background-color: 'rgba(0,0,0,0.7)';
+     align: 'center';
+     padding: { x: 20, y: 10 };
+}

@@ -1,0 +1,193 @@
+:root {
+  --red: #ff4d4d;
+  --green: #2ecc71;
+  --blue: #3498db;
+  --yellow: #f1c40f;
+  --bg: #e0e5ec;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
+}
+
+/* Glassmorphism Containers */
+#setup-screen,
+#controls {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#game-screen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* The Board - Neumorphic Depth */
+#ludo-board {
+  width: 600px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+  border: 8px solid #333;
+}
+
+.cell {
+  border: 0.5px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: all 0.2s;
+}
+
+/* Sophisticated Colors */
+.base-red {
+  background-color: #ffebee;
+  border: 2px solid var(--red) !important;
+}
+
+.base-green {
+  background-color: #e8f5e9;
+  border: 2px solid var(--green) !important;
+}
+
+.base-blue {
+  background-color: #e3f2fd;
+  border: 2px solid var(--blue) !important;
+}
+
+.base-yellow {
+  background-color: #fffde7;
+  border: 2px solid var(--yellow) !important;
+}
+
+.home-red,
+.start-red {
+  background: var(--red) !important;
+}
+
+.home-green,
+.start-green {
+  background: var(--green) !important;
+}
+
+.home-blue,
+.start-blue {
+  background: var(--blue) !important;
+}
+
+.home-yellow,
+.start-yellow {
+  background: var(--yellow) !important;
+}
+
+/* Pieces - 3D Look */
+.piece {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 -4px 4px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.piece.selectable {
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+  z-index: 101;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 0px cyan;
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 0 10px rgba(0, 255, 255, 0);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Dice Styling */
+#dice {
+  width: 70px;
+  height: 70px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.rolling-animation {
+  animation: roll 0.5s infinite;
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg) scale(1.1);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Buttons */
+button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

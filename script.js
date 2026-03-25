@@ -21,14 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
       category: "board"
     },
     {
-      title: "Coming Soon",
-      description: "More games are on the way!",
-      icon: "gamepad",
-      color: "game-orange",
-      url: "#",
-      category: "arcade"
-    },
-    {
       title: "Fractals",
       description: "Explore the beauty of fractals.",
       icon: "brain",
@@ -211,6 +203,14 @@ document.addEventListener('DOMContentLoaded', function() {
       color: "game-yellow",
       url: "wordle",
       category: "word"
+    },
+    {
+      title: "Spin Wheel",
+      description: "Spin the wheel and complete the sentence!",
+      icon: "target",
+      color: "game-pink",
+      url: "spin-wheel",
+      category: "puzzle"
     }
   ];
 

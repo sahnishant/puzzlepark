@@ -1,0 +1,159 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Use min-height for flexibility */
+    padding-top: 20px; /* Add some padding */
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #f1c40f;
+    margin-top: 5px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 900px; /* Limit max width for larger screens */
+    margin: 0 auto;
+}
+
+#game-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px; /* Increased margin */
+    padding: 10px;
+}
+
+.bottle {
+    width: 60px; /* Width of the bottle */
+    /* Fixed height large enough for max capacity + some padding */
+    height: 220px; /* e.g., 4 colors * 50px/color + 20px buffer */
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+    border: 3px solid #ccc;
+    border-top: none; /* Remove top border for open effect */
+    border-radius: 0 0 15px 15px; /* More subtle rounding */
+    padding: 5px 0; /* Add some padding top/bottom INSIDE the border */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+
+    display: flex;
+    flex-direction: column-reverse; /* Stack colors from bottom */
+    /* Align content to the start (bottom in reverse) */
+    justify-content: flex-start;
+
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    position: relative; /* Needed for pseudo-element */
+}
+
+/* Optional: Adjust pseudo-element if needed due to padding */
+.bottle::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Position above the main body */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%; /* Neck width */
+    height: 10px; /* Neck height */
+    background-color: #ccc; /* Match border color */
+    border-radius: 5px 5px 0 0;
+    border: 3px solid #ccc;
+    border-bottom: none;
+    box-sizing: content-box; /* Ensure border adds to size correctly relative to neck*/
+
+}
+
+.bottle.selected {
+    border-color: #f1c40f; /* Highlight selected bottle */
+    transform: translateY(-10px) scale(1.05); /* Lift and slightly enlarge */
+}
+
+.color {
+    width: 100%;
+    /* Fixed height for each color segment */
+    height: 50px; /* Adjust this value based on bottle height and MAX_CAPACITY */
+    flex-shrink: 0; /* Prevent color segments from shrinking */
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Subtle line between colors */
+    box-sizing: border-box; /* Ensure border doesn't add extra height */
+    transition: background-color 0.3s ease;
+}
+
+/* No top border for the element that ends up visually at the bottom */
+.bottle > .color:first-child {
+     border-top: none;
+}
+
+/* --- Color Segment Styling --- */
+/* The height is now set dynamically via JavaScript */
+
+.color:first-child {
+    border-top: none; /* No line at the very bottom */
+}
+/* --- End Color Segment Styling --- */
+
+
+button { /* Common button styles */
+    padding: 12px 25px; /* Slightly larger padding */
+    font-size: 1.1em;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 5px; /* Add some margin between buttons */
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#next-level {
+    background: #4CAF50; /* Green */
+}
+#next-level:hover {
+    background: #45a049;
+}
+
+#reset-level {
+    background: #f44336; /* Red */
+}
+#reset-level:hover {
+    background: #da190b;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    margin-top: 30px; /* Increased margin */
+    padding-bottom: 10px;
+    font-size: 0.9em;
+    color: #ccc;
+    text-align: center;
+    width: 100%;
+}

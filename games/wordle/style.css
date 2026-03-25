@@ -1,0 +1,308 @@
+:root {
+    --color-correct: #538d4e; /* Green */
+    --color-present: #b59f3b; /* Yellow */
+    --color-absent: #3a3a3c;  /* Dark Gray */
+    --color-default-tile-border: #818384;
+    --color-filled-tile-border: #565758;
+    --color-key-bg: #818384;
+    --color-key-text: white;
+    --color-background: #121213;
+    --color-text: #ffffff;
+    --animation-duration: 0.5s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    user-select: none; /* Prevent text selection */
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+    padding: 10px;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--color-absent);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    position: relative; /* For level info positioning */
+}
+
+header h1 {
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+}
+
+.level-info {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+}
+
+#message-area {
+    min-height: 30px; /* Reserve space */
+    margin-bottom: 15px;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#message-area.visible {
+    opacity: 1;
+}
+
+#game-board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr); /* 6 rows */
+    gap: 5px;
+    width: 330px; /* 5 tiles * (60px width + 2*2px border) + 4 * 5px gap */
+    height: 400px; /* Adjust as needed */
+    margin-bottom: 30px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 5px;
+}
+
+.tile {
+    width: 100%; /* Take up grid column space */
+    height: 100%; /* Take up grid row space */
+    border: 2px solid var(--color-default-tile-border);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform var(--animation-duration) ease,
+                background-color var(--animation-duration) ease,
+                border-color var(--animation-duration) ease;
+    transform-style: preserve-3d; /* Needed for flip */
+}
+
+.tile.filled {
+    border-color: var(--color-filled-tile-border);
+    animation: pop 0.1s ease-in-out;
+}
+
+/* Tile states */
+.tile.correct,
+.tile.present,
+.tile.absent {
+    border-color: transparent; /* Remove border when colored */
+    color: var(--color-key-text);
+}
+
+.tile.correct { background-color: var(--color-correct); }
+.tile.present { background-color: var(--color-present); }
+.tile.absent { background-color: var(--color-absent); }
+
+/* Flip animation */
+.tile.flip {
+    animation: flip var(--animation-duration) ease forwards;
+}
+
+@keyframes flip {
+    0% { transform: rotateX(0deg); }
+    50% { transform: rotateX(90deg); }
+    100% { transform: rotateX(0deg); }
+}
+
+@keyframes pop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Shake animation for invalid guess */
+.row.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Bounce animation for winning row */
+.row.win-bounce .tile {
+    animation: bounce 0.6s ease-in-out forwards;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    20% { transform: translateY(-15px); }
+    40% { transform: translateY(0); }
+    60% { transform: translateY(-7px); }
+    80% { transform: translateY(0); }
+}
+
+/* Keyboard */
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 500px; /* Match game container or slightly wider */
+    margin-top: 20px;
+}
+
+.key-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+}
+
+.key {
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 0.9rem;
+    background-color: var(--color-key-bg);
+    color: var(--color-key-text);
+    border: none;
+    border-radius: 4px;
+    padding: 0; /* Reset padding */
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease;
+    flex: 1; /* Make keys flexible */
+    min-width: 30px; /* Minimum width */
+    max-width: 45px; /* Maximum width */
+}
+
+.key:hover {
+    background-color: #a1a3a4; /* Slightly lighter on hover */
+}
+
+.key.large {
+    flex: 1.5; /* Make Enter/Backspace wider */
+    font-size: 0.8rem;
+    max-width: 70px;
+}
+
+/* Key states */
+.key.correct { background-color: var(--color-correct); }
+.key.present { background-color: var(--color-present); }
+.key.absent { background-color: var(--color-absent); }
+
+
+/* Scorecard */
+.scorecard {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: var(--color-absent);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.scorecard h2 {
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--color-default-tile-border);
+    padding-bottom: 5px;
+}
+
+.scorecard p {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.scorecard button {
+    font-family: inherit;
+    padding: 8px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: var(--color-key-bg);
+    color: var(--color-key-text);
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.scorecard button:hover {
+    background-color: #a1a3a4;
+}
+
+#next-level-btn {
+     background-color: var(--color-correct);
+     margin-left: 10px;
+}
+ #next-level-btn:hover {
+     background-color: #63a85e; /* Slightly lighter green */
+ }
+
+
+/* Utility Classes */
+.hidden {
+    display: none !important; /* Use important to override potential conflicts */
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+    #game-board {
+        width: 95vw; /* Adjust width for smaller screens */
+        height: auto; /* Allow height to adjust */
+        aspect-ratio: 5 / 6; /* Maintain aspect ratio */
+        margin-bottom: 20px;
+    }
+
+    .tile {
+        font-size: 1.5rem;
+    }
+
+    .key {
+        height: 45px;
+        min-width: 25px;
+    }
+
+     .key.large {
+        max-width: 55px;
+     }
+
+     #keyboard {
+        gap: 5px;
+     }
+     .key-row {
+        gap: 4px;
+     }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .scorecard {
+        width: 90%;
+    }
+}

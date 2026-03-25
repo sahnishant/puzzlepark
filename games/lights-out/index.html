@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights Out - Phaser</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include Phaser from CDN -->
+    <script src="../../phaser.min.js"></script>
+    <!-- Or download phaser.min.js and link locally -->
+    <!-- <script src="phaser.min.js"></script> -->
+</head>
+
+<body>
+    <h1>Lights Out</h1>
+
+    <div id="scoreboard">
+        <div>Level: <span id="level-display">1</span></div>
+        <div>Moves: <span id="moves-display">0</span></div>
+        <div>Total Score: <span id="score-display">0</span></div>
+    </div>
+
+    <div id="game-container">
+        <!-- Phaser game canvas will be injected here -->
+    </div>
+
+    <div id="win-message" style="display: none; color: limegreen; font-size: 2em; margin-top: 20px;">
+        Level Complete!
+    </div>
+    <div id="game-complete-message" style="display: none; color: gold; font-size: 2em; margin-top: 20px;">
+        Congratulations! You beat all levels!
+    </div>
+
+    <button id="reset-level-button">Reset Level</button>
+    <button id="reset-game-button">Reset All Progress</button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

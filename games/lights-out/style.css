@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items="center"; /* Center horizontally */
+    font-family: sans-serif;
+    background-color: #222;
+    color: #eee;
+    margin: 0;
+    padding-top: 20px; /* Add some space at the top */
+}
+
+h1 {
+    color: #eee;
+    text-align: center;
+}
+
+#game-container {
+    margin-top: 20px; /* Space between scoreboard and game */
+    margin-bottom: 20px;
+    /* Phaser will create the canvas inside this */
+    border: 1px solid #555; /* Optional border */
+    display: flex; /* Helps center canvas if needed */
+    justify-content: center;
+    align-items: center;
+    /* The canvas itself will be centered by Phaser config */
+}
+
+/* Make canvas centered within the container if Phaser doesn't */
+canvas {
+    display: block; /* Removes extra space below canvas */
+    margin: auto; /* Centers block element */
+}
+
+#scoreboard {
+    display: flex;
+    justify-content: space-around; /* Distribute items evenly */
+    width: 80%;
+    max-width: 500px; /* Max width for scoreboard */
+    margin: 15px auto; /* Center scoreboard block */
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+#scoreboard div {
+    text-align: center;
+}
+
+#scoreboard span {
+    font-weight: bold;
+    color: #ffcc00; /* Gold color for values */
+}
+
+#win-message, #game-complete-message {
+     text-align: center;
+     font-weight: bold;
+}
+
+button {
+    margin: 5px;
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #555;
+    color: #eee;
+    border: 1px solid #777;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #777;
+}
+
