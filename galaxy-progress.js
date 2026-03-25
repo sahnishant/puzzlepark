@@ -56,4 +56,30 @@
             };
         }
     };
+
+    // --- Automatic Win Detection Proxy ---
+    const originalAlert = window.alert;
+    window.alert = function(message) {
+        const winPatterns = [/win/i, /congratulations/i, /solved/i, /winner/i, /success/i];
+        const isWin = winPatterns.some(pattern => pattern.test(message));
+        
+        if (isWin) {
+            // Determine gameId from URL
+            const gameId = window.location.pathname.split('/').slice(-2, -1)[0] || 'unknown';
+            window.Galaxy.recordWin(gameId, 100);
+        }
+        
+        return originalAlert.apply(this, arguments);
+    };
+
+    // Also proxy console.log for some games that might not use alert
+    const originalLog = console.log;
+    console.log = function() {
+        const msg = Array.from(arguments).join(' ');
+        if (/game over/i.test(msg) && /win/i.test(msg)) {
+             const gameId = window.location.pathname.split('/').slice(-2, -1)[0] || 'unknown';
+             window.Galaxy.recordWin(gameId, 100);
+        }
+        return originalLog.apply(this, arguments);
+    };
 })();

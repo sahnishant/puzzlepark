@@ -301,7 +301,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Search functionality
   const searchInput = document.getElementById('searchInput');
-  searchInput.addEventListener('input', filterGames);
+  if (searchInput) {
+    searchInput.addEventListener('input', filterGames);
+  }
 
   // Category filter functionality
   const filterButtons = document.querySelectorAll('.filter-btn');
@@ -317,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Function to filter games based on search and category
   function filterGames() {
-    const searchTerm = searchInput.value.toLowerCase();
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : "";
     const activeCategory = document.querySelector('.filter-btn.active').getAttribute('data-category');
     
     const filteredGames = games.filter(game => {
@@ -328,5 +330,41 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     renderGames(filteredGames);
+  }
+
+  // --- Galaxy Progress UI Integration ---
+  if (window.Galaxy) {
+    const updateProfileUI = () => {
+      const data = window.Galaxy.getData();
+      const rank = window.Galaxy.getRank(data.xp);
+      const progress = window.Galaxy.getProgressToNextRank(data.xp);
+      
+      const rankEl = document.getElementById('rankName');
+      const barEl = document.getElementById('xpBarFill');
+      const percentEl = document.getElementById('xpPercent');
+      
+      if (rankEl) rankEl.textContent = rank.name;
+      if (barEl) barEl.style.width = progress.percent + '%';
+      if (percentEl) percentEl.textContent = progress.percent;
+    };
+
+    updateProfileUI();
+    window.addEventListener('galaxyProgressUpdate', updateProfileUI);
+  }
+
+  // Random Game Button
+  const randomBtn = document.getElementById('randomGameBtn');
+  if (randomBtn) {
+    randomBtn.addEventListener('click', function() {
+      const randomIndex = Math.floor(Math.random() * games.length);
+      const randomGame = games[randomIndex];
+      
+      this.textContent = "Selecting...";
+      this.style.opacity = "0.7";
+      
+      setTimeout(() => {
+        window.location.href = `games/${randomGame.url}/index.html`;
+      }, 600);
+    });
   }
 });

@@ -146,7 +146,10 @@ function showResult(question) {
     resultModal.classList.remove('hidden');
     resultModal.classList.add('visible');
     
-    // Confetti effect or something? (Maybe too complex for now)
+    // Record XP for spinning the wheel!
+    if (window.Galaxy) {
+        window.Galaxy.recordWin('spin-wheel', 50);
+    }
 }
 
 function resetGame() {    resultModal.classList.remove('visible');
