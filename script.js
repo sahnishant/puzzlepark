@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
       category: "puzzle"
     },
     {
-      title: "Chess",
-      description: "The classic game of strategy.",
-      icon: "landmark",
-      color: "game-purple",
-      url: "chess",
-      category: "board"
+      title: "Color Sort",
+      description: "Sort balls into bottles by color.",
+      icon: "joystick",
+      color: "game-blue",
+      url: "coloursort",
+      category: "puzzle"
     },
     {
       title: "Fractals",
@@ -29,12 +29,12 @@ document.addEventListener('DOMContentLoaded', function() {
       category: "puzzle"
     },
     {
-      title: "Hangman",
-      description: "Guess the word before the hangman is complete.",
-      icon: "scroll",
-      color: "game-orange",
-      url: "hangman",
-      category: "word"
+      title: "Detective Chase",
+      description: "Find the culprit in this logic puzzle.",
+      icon: "target",
+      color: "game-purple",
+      url: "detective-chase",
+      category: "puzzle"
     },
     {
       title: "Island Puzzle",
@@ -125,11 +125,11 @@ document.addEventListener('DOMContentLoaded', function() {
       category: "board"
     },
     {
-      title: "Solitaire",
-      description: "Classic card game for one player.",
-      icon: "joystick",
-      color: "game-pink",
-      url: "solitaire",
+      title: "Ludo",
+      description: "The classic board game for friends.",
+      icon: "dices",
+      color: "game-red",
+      url: "ludo",
       category: "board"
     },
     {
@@ -211,6 +211,30 @@ document.addEventListener('DOMContentLoaded', function() {
       color: "game-pink",
       url: "spin-wheel",
       category: "puzzle"
+    },
+    {
+      title: "Lights Out",
+      description: "Turn off all lights in this logic puzzle.",
+      icon: "puzzle",
+      color: "game-yellow",
+      url: "lights-out",
+      category: "puzzle"
+    },
+    {
+      title: "Picross",
+      description: "Solve nonogram puzzles to reveal images.",
+      icon: "grid",
+      color: "game-green",
+      url: "picross",
+      category: "puzzle"
+    },
+    {
+      title: "Word Search",
+      description: "Find all hidden words in the grid.",
+      icon: "book",
+      color: "game-orange",
+      url: "wordsearch",
+      category: "word"
     }
   ];
 

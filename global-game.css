@@ -1,0 +1,89 @@
+/* Global Whimsy Galaxy Game Theme */
+:root {
+    --galaxy-primary: #a78bfa;
+    --galaxy-secondary: #60a5fa;
+    --galaxy-bg: #0f172a;
+    --galaxy-glass: rgba(255, 255, 255, 0.05);
+    --galaxy-border: rgba(255, 255, 255, 0.1);
+    --galaxy-font: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--galaxy-bg) !important;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(167, 139, 250, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(96, 165, 250, 0.15) 0%, transparent 40%) !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    color: #f9fafb !important;
+    font-family: var(--galaxy-font) !important;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px; /* Room for the back button */
+}
+
+/* Glassmorphic Containers */
+.game-container, .container, main, #game-screen, .setup-screen {
+    background: var(--galaxy-glass) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--galaxy-border) !important;
+    border-radius: 24px !important;
+    padding: 2.5rem !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.3s ease;
+    max-width: 90vw;
+}
+
+/* Premium Titles */
+h1 {
+    font-size: 3rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 2rem !important;
+    background: linear-gradient(to right, #fff, var(--galaxy-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+/* Reusable Button Style */
+button, .btn, .restart-btn, .start-button, #roll-dice-btn {
+    background: linear-gradient(135deg, var(--galaxy-primary), #7c3aed) !important;
+    border: none !important;
+    border-radius: 14px !important;
+    color: white !important;
+    padding: 1rem 2rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.3) !important;
+    font-family: var(--galaxy-font) !important;
+}
+
+button:hover, .btn:hover {
+    transform: translateY(-4px) scale(1.02) !important;
+    box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.4) !important;
+}
+
+button:active {
+    transform: translateY(0) scale(0.98) !important;
+}
+
+/* Inputs & Selects */
+select, input[type="text"], input[type="number"] {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid var(--galaxy-border) !important;
+    border-radius: 12px !important;
+    color: white !important;
+    padding: 0.75rem 1rem !important;
+    font-family: var(--galaxy-font) !important;
+}
+
+/* Hide existing headers if they are redundant */
+header h1:first-of-type {
+    margin-top: 0;
+}

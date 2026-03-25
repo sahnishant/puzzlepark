@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Whimsy Game Galaxy</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
 </head>
 <body>
@@ -14,12 +15,25 @@
         <span class="icon gamepad-icon"></span>
         <span class="logo-text">Whimsy Game Galaxy</span>
       </a>
-      <div class="nav-links">
-        <a href="index.html" class="nav-link active">Games</a>
-        <a href="https://github.com/yourusername/whimsy-game-galaxy" class="nav-link">GitHub</a>
+      <div class="header-actions">
+        <div id="galaxyProfile" class="profile-compact">
+          <div class="profile-info">
+            <span id="rankName">Stardust Cadet</span>
+            <div class="xp-bar-container">
+              <div id="xpBarFill" class="xp-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="xp-tooltip">Level Progress: <span id="xpPercent">0</span>%</div>
+        </div>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link active">Games</a>
+          <button id="randomGameBtn" class="nav-btn primary-glow">Random Game 🎲</button>
+        </div>
       </div>
     </div>
   </nav>
+
+  <script src="galaxy-progress.js"></script>
 
   <div class="container main">
     <div class="controls">
